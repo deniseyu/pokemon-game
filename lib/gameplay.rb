@@ -19,7 +19,7 @@ class PokemonGame < Sinatra::Base
   post '/' do
     session[:trainer] = Trainer.new
     @trainer = session[:trainer]
-    @trainer_session = @trainer
+    # @trainer_session = @trainer
     @trainer.name = params[:name]
     GAME.add(@trainer)
     erb :index
