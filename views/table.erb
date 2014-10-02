@@ -1,0 +1,22 @@
+<!-- <table>
+  <thead>Battleships</thead>
+  <tr>
+  <% [*"A".."J"].unshift(" ").each do |column| %>
+  <td> <%= column %> </td>
+  <% end %>
+</tr>
+  <% [*1..10].each do |row| %>
+  <tr><td><%= row %></td></tr>
+  <% end %>
+</table>
+ -->
+<table>
+<% [*"A".."J"].each do |letter| %>
+<% [*1..10].each do |number| %>
+  <tr>
+    <td><%= "#{letter}#{number}".to_a %></td>
+  </tr>
+ 
+  <% end %>
+  <% end %>
+</table>

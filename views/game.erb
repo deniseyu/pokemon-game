@@ -1,0 +1,21 @@
+  <img src='/images/prof_oak.jpeg'>
+  <p>Welcome to the world of Pokemon, <%= @trainer.name %>!</p>
+  <p><%= @trainer.name %>
+  <p></p>
+   <p>Click on the Pokeball to catch 'em all!</p>
+  <p>
+    <a href='/catch'><img src='/images/pokeball.jpeg' width='50'></a></p>
+  <% if @trainer.pokedex == [] %>
+    <p>You have no Pokemon yet!</p>
+  <% else %>
+    <p>Your current Pokemon:</p>
+    <p><% @trainer.pokedex.each do |pokemon| %>
+    <%= pokemon.name %>
+    <br><img src='/images/<%= pokemon.name.downcase %>.jpeg' width='100'>
+    <br>
+      <% end %>
+  <% end %>
+ 
+
+
+    

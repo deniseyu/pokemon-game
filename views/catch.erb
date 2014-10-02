@@ -1,0 +1,8 @@
+<h2>A wild <%= @random_p.name %> has appeared!</h2>
+<p><img src='/images/<%= @random_p.name.downcase %>.jpeg'></p>
+<p>
+<form action='/catch' method='post'>
+  <input type='submit' value='Throw a Pokeball!'>
+</form>
+
+<%= @session.inspect %>
