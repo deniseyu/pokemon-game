@@ -1,0 +1,48 @@
+body {
+  padding-left: 10%;
+  padding-right: 10%;
+  background: white;
+}
+
+h1 {
+  font-family: Baskerville;
+  size: 2em;
+}
+
+h2 {
+  font-family: Baskerville;
+  size: 1.5em;
+}
+
+h4 {
+  font-family: Baskerville;
+  color: #3399FF;
+}
+
+p {
+  font-family: Baskerville;
+}
+
+
+div.main {
+  width: 100%;
+}
+
+section.maingame {
+  width: 40%;
+  display: inline-block;
+  padding-top: 10%;
+  vertical-align: top;
+}
+
+section.pokedex {
+  width: 40%;
+  display: inline-block;
+  position: right;
+  padding-top: 10%;
+}
+
+section.image {
+  padding-left: auto;
+  padding-right: auto;
+}
