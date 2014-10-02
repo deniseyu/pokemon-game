@@ -8,7 +8,12 @@ class Trainer
   end
 
   def catch(pokemon)
-    @pokedex << pokemon
+    a = [1, 2, 3, 4, 5, 6].sample
+    if a > 3
+      @pokedex << pokemon
+    else
+      return pokemon
+    end
   end
 
   def poke_count

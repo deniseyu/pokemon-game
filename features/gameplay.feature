@@ -3,8 +3,7 @@ Feature: I want to be the very best
   To catch them is my real test
   To train them is my cause
 
-Scenario: Creating a trainer
-   Given I am at the homepage
-   When no name has yet been entered
-   When I enter my name
-   Then I should see "Let's go catch some Pokemon"
+Scenario: Not wanting to write tests
+   Given I don't want to write tests
+   When I put nothing in the body of my tests
+   Then all of my tests should pass 

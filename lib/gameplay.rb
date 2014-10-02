@@ -6,6 +6,7 @@ require_relative 'pokemon'
 class PokemonGame < Sinatra::Base
   set :views, Proc.new{File.join(root, '..', "views")}
   set :public_dir, Proc.new{File.join(root, '..', "public")}
+  set :public_folder, 'public'
   enable :sessions
 
   GAME = Game.new
@@ -13,6 +14,11 @@ class PokemonGame < Sinatra::Base
   get '/' do
     @trainer = session[:trainer]
     erb :index
+  end
+
+  post '/logout' do
+    session.clear 
+    redirect '/'
   end
 
   post '/' do

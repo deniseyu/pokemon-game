@@ -1,6 +1,7 @@
-  <h2>Welcome to Pokemon Catcher!</h2>
-  <p>Today you can catch some of the following Pokemon!</p>
-  <p><img src="/images/charmander.jpeg" width='100' height='100'>
+  <h1>Welcome to Pokemon Catcher!</h1>
+  <h2>Today you can catch some of the following Pokemon!</h2>
+  <p>
+    <div class="main"><img src="/images/charmander.jpeg" width='100' height='100'>
     <img src="/images/squirtle.jpeg" width='100' height='100'>
     <img src="/images/bulbasaur.jpeg" width='100' height='100'>
     <br><img src="/images/pikachu.jpeg" width='100' height='100'>
@@ -9,19 +10,21 @@
     <br><img src="/images/lapras.jpeg" width='100' height='100'>
     <img src="/images/scyther.jpeg" width='100' height='100'>
     <img src="/images/eevee.jpeg" width='100' height='100'>
+  </div>
   </p>
 
 <% if @trainer %>
 
-<p>Let's go catch some Pokemon, <%= @trainer.name %>! <a href='/game'>Go!</a>
+<h3>Let's go catch some Pokemon, <%= @trainer.name %>! <a href='/game'>Go!</a></h3>
 
 <% else %>
 
-<p> Enter your name!</p>
+<h3> Enter your name!
 <form action='/' method='post'>
   <input type='text' name='name'>
   <input type='submit' value='Submit'>
 </form>
+</h3>
 
 <% end %> 
 
