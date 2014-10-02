@@ -12,7 +12,11 @@ class Trainer
   end
 
   def poke_count
-    pokemon.count 
+    pokedex.count 
+  end
+
+  def release(pokemon)
+    @pokedex.delete(pokemon)
   end
 
 end

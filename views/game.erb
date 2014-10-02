@@ -7,10 +7,14 @@
   <% if @trainer.pokedex == [] %>
     <p>You have no Pokemon yet!</p>
   <% else %>
-    <p>Your current Pokemon:</p>
+    <p>You currently have <%= @trainer.poke_count %> Pokemon!</p>
+    <p>
+    <form action='/delete' method='POST'>
+      <input type='submit' value='Release last Pokemon caught'></p>
+    </form>
     <p><% @trainer.pokedex.each do |pokemon| %>
-    <%= pokemon.name %>
-    <br><img src='/images/<%= pokemon.name.downcase %>.jpeg' width='100'>
+    <%= pokemon.name %>     
+    <br><img src='/images/<%= pokemon.name.downcase %>.jpeg' width='100'></p>
     <br>
       <% end %>
   <% end %>

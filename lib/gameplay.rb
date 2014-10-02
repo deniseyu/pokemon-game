@@ -11,7 +11,6 @@ class PokemonGame < Sinatra::Base
   GAME = Game.new
 
   get '/' do
-    # @trainer = Trainer.new
     @trainer = session[:trainer]
     erb :index
   end
@@ -19,7 +18,6 @@ class PokemonGame < Sinatra::Base
   post '/' do
     session[:trainer] = Trainer.new
     @trainer = session[:trainer]
-    # @trainer_session = @trainer
     @trainer.name = params[:name]
     GAME.add(@trainer)
     erb :index
@@ -54,6 +52,15 @@ class PokemonGame < Sinatra::Base
     @trainer.catch(@random_p)
     redirect '/game'
   end
+
+  post '/delete' do
+    @trainer = session[:trainer]
+    @pokemon = @trainer.pokedex[-1]
+    @trainer.release(@pokemon)
+    redirect '/game'
+  end
+
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0

@@ -61,4 +61,77 @@ class Bulbasaur < Pokemon
   end
 end
 
+class Abra < Pokemon
+
+  def initialize
+    super
+    @name = :Abra
+  end
+end
+
+class Butterfree < Pokemon
+  def initialize
+    super
+    @name = :Butterfree
+  end
+end
+
+class Clefairy < Pokemon 
+  def initialize 
+    super
+    @name = :Clefairy
+  end
+end
+
+class Eevee < Pokemon
+  def initialize
+    super
+    @name = :Eevee
+  end
+end
+
+class Gyarados < Pokemon
+  def initialize
+    super
+    @name = :Gyarados
+  end
+end
+
+class Lapras < Pokemon
+  def initialize
+    super
+    @name = :Gyarados
+  end
+end
+
+class Meowth < Pokemon
+  def initialize
+    super
+    @name = :Meowth
+  end
+end
+
+class Onix < Pokemon
+  def initialize
+    super
+    @name = :Onix 
+  end
+end
+
+class Scyther < Pokemon
+  def initialize
+    super
+    @name = :Scyther
+  end
+end
+
+class Zapdos < Pokemon
+  def initialize
+    super
+    @name = :Zapdos
+  end
+end
+
+
+
 
