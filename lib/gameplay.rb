@@ -8,6 +8,7 @@ class PokemonGame < Sinatra::Base
   set :public_dir, Proc.new{File.join(root, '..', "public")}
   set :public_folder, 'public'
   enable :sessions
+  use Rack::MethodOverride
 
   GAME = Game.new
 
@@ -25,7 +26,6 @@ class PokemonGame < Sinatra::Base
     session[:trainer] = Trainer.new
     @trainer = session[:trainer]
     @trainer.name = params[:name]
-    GAME.add(@trainer)
     erb :index
   end
 
@@ -34,39 +34,25 @@ class PokemonGame < Sinatra::Base
     erb :game
   end
 
-  post '/game' do
-    @trainer = GAME.trainer
-    @name = params[:name]
-    @pokedex = session[:pokedex]
-    @trainer.pokedex = session[:pokedex]
-    erb :game
-  end
 
   get '/catch' do
-    @trainer = session[:trainer]
-    session[:random] = []
     @random_p = GAME.random
-    @session = session[:random]
-    @session << @random_p
+    session[:wild_pokemon] = @random_p
     erb :catch
   end
 
   post '/catch' do
-    @session = session[:random]
-    @trainer = session[:trainer]
-    @random_p = @session[0]
-    @trainer.catch(@random_p)
+    trainer = session[:trainer]
+    trainer.catch(session[:wild_pokemon])
     redirect '/game'
   end
 
-  post '/delete' do
-    @trainer = session[:trainer]
-    @pokemon = @trainer.pokedex[-1]
-    @trainer.release(@pokemon)
+  delete '/pokemon/:index' do
+    trainer = session[:trainer]
+    pokemon = params[:index].to_i
+    trainer.release(trainer.pokedex[pokemon])
     redirect '/game'
   end
-
-
 
   # start the server if ruby file executed directly
   run! if app_file == $0

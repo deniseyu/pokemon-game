@@ -22,14 +22,18 @@
   <% else %>
     <h4>You currently have <%= @trainer.poke_count %> Pokemon!</h4>
     <p>
-    <form action='/delete' method='POST'>
-      <input type='submit' value='Release last Pokemon caught'></p>
-    </form>
-    <p><% @trainer.pokedex.reverse.each do |pokemon| %>
+
+    <p><% @trainer.pokedex.each_with_index do |pokemon, i| %>
     <%= pokemon.name %>     
     <br><img src='/images/<%= pokemon.name.downcase %>.jpeg' width='100'></p>
     <br>
+      <form action='/pokemon/<%= i %>' method='post'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Release'>
+      </form>
+
       <% end %>
+
   <% end %>
  
   </section>
